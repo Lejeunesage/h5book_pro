@@ -20,7 +20,6 @@ const CommentSection: React.FC<CommentSectionProps> = ({ newsFeedItem }) => {
 
   const handleCommentSubmit = (event: React.FormEvent) => {
     event.preventDefault();
-    // Logique pour soumettre le nouveau commentaire
     console.log('Nouveau commentaire :', newComment);
     setNewComment('');
   };
@@ -70,14 +69,14 @@ const CommentSection: React.FC<CommentSectionProps> = ({ newsFeedItem }) => {
             😀
           </button>
           {showEmojiPicker && (
-            <div className="absolute bottom-10 right-0">
+            <div className="absolute bottom-10 right-0 z-10">
               <EmojiPicker onEmojiClick={handleEmojiClick} />
             </div>
           )}
         </div>
         <button
           type="submit"
-          className="mt-2 bg-blue-500 text-white px-4 py-2 rounded"
+          className="mt-2 px-4 py-2 bg-blue-500 text-white rounded"
         >
           Commenter
         </button>

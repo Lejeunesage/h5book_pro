@@ -1,4 +1,9 @@
-import { User } from "./User";
+export interface Reply {
+  id: number;
+  author: string;
+  authorImage: string;
+  content: string;
+}
 
 export interface Comment {
   id: number;
@@ -6,13 +11,6 @@ export interface Comment {
   authorImage: string;
   content: string;
   replies: Reply[];
-}
-
-export interface Reply {
-  id: number;
-  author: string;
-  authorImage: string;
-  content: string;
 }
 
 export interface NewsFeedItem {
@@ -24,5 +22,3 @@ export interface NewsFeedItem {
   imageUrl: string;
   comments: Comment[];
 }
-
-  

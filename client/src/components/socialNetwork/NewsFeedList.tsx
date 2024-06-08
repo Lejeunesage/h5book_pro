@@ -8,10 +8,14 @@ interface NewsFeedListProps {
 }
 
 const NewsFeedList: React.FC<NewsFeedListProps> = ({ newsFeedItems }) => {
+
+  if (!newsFeedItems || newsFeedItems.length === 0) {
+    return <p>No news items available.</p>;
+  }
   return (
     <div className="space-y-4">
       {newsFeedItems.map((newsFeedItems, index) => (
-        <NewsFeedCard key={index} newsFeedItems={newsFeedItems} />
+        <NewsFeedCard key={index} newsFeedItem={newsFeedItems} />
       ))}
     </div>
   );

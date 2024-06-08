@@ -8,13 +8,13 @@ import { User } from '../models/socialNetwork/User';
 import { NewsFeedItem, Comment, Reply } from '../models/socialNetwork/NewsFeedItem';
 
 export const user: User = {
-  id: 1,
-  name: 'John Doe',
-  bio: 'Loving life and coding!',
-  profileImageUrl: 'https://cdn.leonardo.ai/users/802f37dd-c9b1-4c49-9df7-8483e4db2cda/generations/42b7f810-1af2-47f1-949a-1d674c51daa0/variations/Default_the_boy_with_the_glassesthe_girl_with_middle_long_hair_1_42b7f810-1af2-47f1-949a-1d674c51daa0_0.jpg?w=512'
-};
-
-export const newsFeedItems: NewsFeedItem[] = [
+    id: 1,
+    name: 'John Doe',
+    bio: 'Loving life and coding!',
+    profileImageUrl: 'https://cdn.leonardo.ai/users/802f37dd-c9b1-4c49-9df7-8483e4db2cda/generations/42b7f810-1af2-47f1-949a-1d674c51daa0/variations/Default_the_boy_with_the_glassesthe_girl_with_middle_long_hair_1_42b7f810-1af2-47f1-949a-1d674c51daa0_0.jpg?w=512'
+  };
+  
+  export const newsFeedItems: NewsFeedItem[] = [
     {
       id: 1,
       author: "John Doe",

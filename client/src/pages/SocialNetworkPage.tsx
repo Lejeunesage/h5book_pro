@@ -16,31 +16,32 @@ import { user, suggestions, likedPages, newsFeedItems, stories, photos, events, 
 const SocialNetworkPage: React.FC = () => {
   return (
     <Layout>
-      <div className="flex min-h-screen ">
-        {/* First Column: Profile, Suggestions, Liked Pages, Weather, News */}
-        <div className="flex-1 basis-2/6 space-y-4 p-4">
+      <div className="flex flex-col min-h-screen lg:flex-row">
+  
+
+        {/* Second Column: Profile, Suggestions, Liked Pages */}
+        <div className="order-2 lg:order-none flex-1 lg:flex-1 lg:basis-2/6 space-y-4 p-4 hidden lg:block">
           <ProfileCard user={user} />
           <SuggestionCard suggestions={suggestions} />
           <LikedPageCard likedPages={likedPages} />
-          {/* Add Weather and News components here */}
         </div>
 
-        {/* Second Column: Create Post Form, Status List */}
-        <div className="flex-2 basis-3/6 space-y-4 p-4">
-          <StoriesList stories={stories} />
+        {/* Third Column: Create Post Form, Status List */}
+        <div className="order-3 lg:order-none flex-2 lg:flex-1 lg:basis-4/6 space-y-4 p-4">
+        <StoriesList stories={stories} />
           <CreatePostForm user={user} />
           {newsFeedItems && newsFeedItems.length > 0 && <NewsFeedList newsFeedItems={newsFeedItems} />}
         </div>
 
-        {/* Third Column: Gallery, Events, Games */}
-        <div className="flex-1 basis-2/6 space-y-4 p-4">
+        {/* Fourth Column: Gallery, Events, Games */}
+        <div className="order-4 lg:order-none flex-1 lg:flex-1 lg:basis-2/6 space-y-4 p-4 hidden lg:block">
           <GalleryCard photos={photos} />
           <EventCard events={events} />
           <GameCard games={games} />
         </div>
         
-        {/* Fourth Column: Friend List */}
-        <div className="flex-1 basis-2/6 space-y-4 p-4">
+        {/* Fifth Column: Friend List */}
+        <div className="order-5 lg:order-none flex-1 lg:flex-1 lg:basis-2/6 space-y-4 p-4 hidden lg:block">
           <FriendList friends={friends} />
         </div>
       </div>
