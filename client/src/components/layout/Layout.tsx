@@ -27,16 +27,16 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   }, [isSidebarOpen]);
 
   
-  const marginLeftClass = isSidebarOpen ? "md:ml-56" : "ml-0";
+  const marginLeftClass = isSidebarOpen ? "md:ml-36" : "ml-0";
 
   return (
-    <div className="flex flex-col min-h-screen  bg-[#edf7fb] dark:bg-gray-700">
+    <div className="flex flex-col min-h-screen  bg-bs-fond dark:bg-bs-darkfond">
       <Header isSidebarOpen={isSidebarOpen} toggleSidebar={() => setIsSidebarOpen(!isSidebarOpen)} />
       
       <ChatIcon toggleChat={() => setIsChatOpen(!isChatOpen)} />
       
       {isChatOpen && <ChatPanel />}
-      <main className={`${marginLeftClass} flex-grow p-5 transition-all duration-300`}>
+      <main className={`${marginLeftClass} flex-grow py-7 px-5 transition-all duration-300`}>
         {children}
       </main>
     </div>

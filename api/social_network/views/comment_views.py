@@ -1,64 +1,76 @@
-from rest_framework import viewsets, permissions
+from rest_framework import viewsets, status
 from rest_framework.decorators import api_view, permission_classes
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from django.http import JsonResponse
+from django.shortcuts import get_object_or_404
 from ..models import Comment
 from ..serializers import CommentSerializer
 
-class CommentViewSet(viewsets.ModelViewSet):
+class CommentViewSet(viewsets.ViewSet):
     queryset = Comment.objects.all()
-    serializer_class = CommentSerializer
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    serializer = CommentSerializer
 
     @api_view(['GET'])
-    def get_comment(request, comment_id):
-        try:
-            comment = Comment.objects.get(pk=comment_id)
-            data = CommentSerializer(comment).data
-            return JsonResponse({'data': data})
-        except Comment.DoesNotExist:
-            return JsonResponse({'errorMessage': 'Commentaire introuvable'}, status=404)
-        except Exception as e:
-            return JsonResponse({'errorMessage': 'Erreur lors de la récupération du commentaire : ' + str(e)}, status=500)
+    @permission_classes([IsAuthenticated])
+    def index(self, request):
+        if request.method == 'GET':
+            try:
+                comments = Comment.objects.all()
+                serializer = CommentSerializer(comments, many=True)
+                return JsonResponse(serializer.data, status=status.HTTP_200_OK)
+            except Exception as e:
+                return JsonResponse({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
     @api_view(['POST'])
-    # @permission_classes([permissions.IsAuthenticated])
-    def create_comment(request):
-        try:
-            content = request.data.get('content')
-            post_id = request.data.get('post_id')
-            comment = Comment(author=request.user, content=content, post_id=post_id)
-            comment.save()
-            comment_data = CommentSerializer(comment).data
-            return JsonResponse({'data': comment_data, 'successMessage': 'Commentaire créé avec succès'})
-        except Exception as e:
-            return JsonResponse({'errorMessage': 'Erreur lors de la création du commentaire : ' + str(e)}, status=500)
+    @permission_classes([IsAuthenticated])
+    def create(self, request):
+        if request.method == 'POST':
+            try:
+                serializer = CommentSerializer(data=request.data)
+                if serializer.is_valid():
+                    serializer.save(author=request.user)
+                    return JsonResponse(serializer.data, status=status.HTTP_201_CREATED)
+                return JsonResponse(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+            except Exception as e:
+                return JsonResponse({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
-    @api_view(['PUT', 'PATCH'])
-    # @permission_classes([permissions.IsAuthenticated])
-    def update_comment(request, comment_id):
-        try:
-            comment = Comment.objects.get(pk=comment_id)
-            fields_to_update = request.data
-            for key, value in fields_to_update.items():
-                if hasattr(comment, key):
-                    setattr(comment, key, value)
-            comment.save()
-            comment_data = CommentSerializer(comment).data
-            return JsonResponse({'data': comment_data, 'successMessage': 'Commentaire mis à jour avec succès'})
-        except Comment.DoesNotExist:
-            return JsonResponse({'errorMessage': 'Commentaire introuvable'}, status=404)
-        except Exception as e:
-            return JsonResponse({'errorMessage': 'Erreur lors de la mise à jour du commentaire : ' + str(e)}, status=500)
+    @api_view(['GET'])
+    @permission_classes([IsAuthenticated])
+    def retrieve(self, request, pk):
+        if request.method == 'GET':
+            try:
+                comment = get_object_or_404(Comment, pk=pk)
+                serializer = CommentSerializer(comment)
+                return JsonResponse(serializer.data, status=status.HTTP_200_OK)
+            except Exception as e:
+                return JsonResponse({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+    @api_view(['PUT'])
+    @permission_classes([IsAuthenticated])
+    def update(self, request, pk):
+        if request.method == 'PUT':
+            try:
+                comment = get_object_or_404(Comment, pk=pk)
+                if request.user == comment.author:
+                    serializer = CommentSerializer(comment, data=request.data)
+                    if serializer.is_valid():
+                        serializer.save(updated_by=request.user)
+                        return JsonResponse(serializer.data, status=status.HTTP_200_OK)
+                    return JsonResponse(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+                return JsonResponse({'error': 'You are not authorized to update this comment.'}, status=status.HTTP_403_FORBIDDEN)
+            except Exception as e:
+                return JsonResponse({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
     @api_view(['DELETE'])
-    # @permission_classes([permissions.IsAuthenticated])
-    def delete_comment(request, comment_id):
-        try:
-            comment = Comment.objects.get(pk=comment_id)
-            comment.delete()
-            return Response({'successMessage': 'Commentaire supprimé avec succès'})
-        except Comment.DoesNotExist:
-            return Response({'errorMessage': 'Commentaire introuvable'}, status=404)
-        except Exception as e:
-            return Response({'errorMessage': 'Erreur lors de la suppression du commentaire : ' + str(e)}, status=500)
+    @permission_classes([IsAuthenticated])
+    def destroy(self, request, pk):
+        if request.method == 'DELETE':
+            try:
+                comment = get_object_or_404(Comment, pk=pk)
+                if request.user == comment.author:
+                    comment.delete()
+                    return JsonResponse({'message': 'Comment deleted successfully.'}, status=status.HTTP_204_NO_CONTENT)
+                return JsonResponse({'error': 'You are not authorized to delete this comment.'}, status=status.HTTP_403_FORBIDDEN)
+            except Exception as e:
+                return JsonResponse({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)

@@ -16,10 +16,17 @@ export const useDarkMode = (): DarkModeContextProps => {
 };
 
 export const DarkModeProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-  const [isDarkMode, setIsDarkMode] = useState<boolean>(false);
+  const [isDarkMode, setIsDarkMode] = useState<boolean>(() => {
+    const storedDarkMode = localStorage.getItem('darkMode');
+    return storedDarkMode ? JSON.parse(storedDarkMode) : false;
+  });
 
   const toggleDarkMode = () => {
-    setIsDarkMode(prevMode => !prevMode);
+    setIsDarkMode(prevMode => {
+      const newMode = !prevMode;
+      localStorage.setItem('darkMode', JSON.stringify(newMode));
+      return newMode;
+    });
   };
 
   useEffect(() => {

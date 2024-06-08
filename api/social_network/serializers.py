@@ -1,29 +1,48 @@
 from rest_framework import serializers
-from .models import Profile, Post, Comment
-from django.contrib.auth.models import User
+from .models import *
 
-class UserSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = User
-        fields = ['id', 'username', 'email']
-
-class ProfileSerializer(serializers.ModelSerializer):
-    user = UserSerializer()
-
-    class Meta:
-        model = Profile
-        fields = ['id', 'user', 'bio', 'avatar']
 
 class PostSerializer(serializers.ModelSerializer):
-    author = UserSerializer(read_only=True)
-
     class Meta:
         model = Post
-        fields = ['id', 'author', 'content', 'created_at', 'updated_at']
+        fields = '__all__'
+
+class MediaSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Media
+        fields = '__all__'
+        
+class GroupSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Group
+        fields = '__all__'
+
+class CompanySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Company
+        fields = '__all__'
 
 class CommentSerializer(serializers.ModelSerializer):
-    author = UserSerializer(read_only=True)
-
     class Meta:
         model = Comment
-        fields = ['id', 'post', 'author', 'content', 'created_at']
+        fields = '__all__'
+
+class ReactionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Reaction
+        fields = '__all__'
+
+class ProfileSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Profile
+        fields = '__all__'
+
+class StatusSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Status
+        fields = '__all__'
+
+class NotificationSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Notification
+        fields = '__all__'
