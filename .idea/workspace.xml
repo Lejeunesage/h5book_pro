@@ -4,31 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="475e31ca-d26b-45b8-beef-a383050016a7" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/api/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/api/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/api/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/AppRoutes.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/AppRoutes.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/blog/BlogList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/blog/BlogList.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/blog/BlogPost.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/blog/BlogPost.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/blog/BlogSidebar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/blog/BlogSidebar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/layout/Layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/layout/Layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/layout/Navbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/layout/Navbar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/layout/Sidebar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/layout/Sidebar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/contexts/DarkModeContext.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/contexts/DarkModeContext.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/hooks/useBlog.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/hooks/useBlog.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/models/BlogPostModel.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/models/BlogPostModel.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/pages/BlogPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/BlogPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/pages/SocialNetworkPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/SocialNetworkPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/services/blogService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/services/blogService.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/types/blogTypes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/types/blogTypes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/utils/api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/utils/api.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/tailwind.config.js" afterDir="false" />
-    </list>
+    <list default="true" id="475e31ca-d26b-45b8-beef-a383050016a7" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -45,20 +21,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/akanni.otegbeye/Desktop/www/h5book_pro",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/akanni.otegbeye/Desktop/www/h5book_pro&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -78,6 +54,7 @@
       <workItem from="1716989063419" duration="7119000" />
       <workItem from="1717053161812" duration="313000" />
       <workItem from="1717536952971" duration="830000" />
+      <workItem from="1718138507442" duration="14000" />
     </task>
     <servers />
   </component>

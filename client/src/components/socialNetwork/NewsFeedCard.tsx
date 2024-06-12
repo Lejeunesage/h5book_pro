@@ -33,7 +33,7 @@ const NewsFeedCard: React.FC<NewsFeedCardProps> = ({ newsFeedItem }) => {
         <img
           src={imageUrl}
           alt={title}
-          className="w-full h-auto rounded mb-4"
+          className="w-full max-h-96 rounded mb-4 object-cover"
         />
       )}
       <CommentSection newsFeedItem={newsFeedItem} />

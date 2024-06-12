@@ -28,7 +28,7 @@ const SocialNetworkPage: React.FC = () => {
 
         {/* Third Column: Create Post Form, Status List */}
         <div className="order-3 lg:order-none flex-2 lg:flex-1 lg:basis-4/6 space-y-4 p-4">
-        <StoriesList stories={stories} />
+          <StoriesList stories={stories} />
           <CreatePostForm user={user} />
           {newsFeedItems && newsFeedItems.length > 0 && <NewsFeedList newsFeedItems={newsFeedItems} />}
         </div>

@@ -9,8 +9,11 @@ import { NewsFeedItem, Comment, Reply } from '../models/socialNetwork/NewsFeedIt
 
 export const user: User = {
     id: 1,
-    name: 'John Doe',
+    username: 'John Doe',
+    email: 'johndoe@gmail.com',
     bio: 'Loving life and coding!',
+    following: 52,
+    followers: 532,
     profileImageUrl: 'https://cdn.leonardo.ai/users/802f37dd-c9b1-4c49-9df7-8483e4db2cda/generations/42b7f810-1af2-47f1-949a-1d674c51daa0/variations/Default_the_boy_with_the_glassesthe_girl_with_middle_long_hair_1_42b7f810-1af2-47f1-949a-1d674c51daa0_0.jpg?w=512'
   };
   
@@ -49,8 +52,11 @@ export const suggestions: User[] = [
 ];
 
 export const likedPages = [
-  { id: 1, name: 'React Lovers', description: 'A page for React enthusiasts.' },
-  { id: 2, name: 'JavaScript Devs', description: 'All about JavaScript.' }
+  { id: 1, name: 'Chrimson Agency', description: 'Clothing Store', imageUrl: 'https://cdn.leonardo.ai/users/2e0d1e44-6cf8-453e-ae5b-cf2e51e2b0da/generations/c957d29e-1393-45a5-a9eb-baa355931af6/variations/alchemyrefiner_alchemymagic_1_c957d29e-1393-45a5-a9eb-baa355931af6_0.jpg?w=512', followers: '15k' },
+  { id: 2, name: 'Digital Pixel', description: 'Software Company', imageUrl: 'https://cdn.leonardo.ai/users/c38778db-d6fb-4c5e-87c0-c130618e392e/generations/55ba92bb-2b5b-40c4-ad8f-fd110ec3ae6a/variations/alchemyrefiner_alchemymagic_3_55ba92bb-2b5b-40c4-ad8f-fd110ec3ae6a_0.jpg?w=512', followers: '158k' },
+  { id: 3, name: 'The Angle Bar', description: 'Disco Bar', imageUrl: 'https://cdn.leonardo.ai/users/61ed95a9-5b40-4c0f-bd4b-2b509b183325/generations/5048c185-c497-4139-803b-76232f56c2db/variations/Default_A_Greek_Stoic_man_made_of_grey_stone_with_cracks_A_ton_0_5048c185-c497-4139-803b-76232f56c2db_0.jpg?w=512', followers: '8k' },
+  { id: 4, name: 'Fivestar Food', description: 'Restaurant', imageUrl: 'https://cdn.leonardo.ai/users/dbf1d627-3545-4f18-932d-6ab622402252/generations/ec63d8c8-b237-41be-b726-fb70fb945274/variations/Default_Black_panther_close_up_national_geographic_like_photor_2_ec63d8c8-b237-41be-b726-fb70fb945274_0.jpg?w=512g', followers: '186k' },
+  { id: 5, name: 'Royal Watch', description: 'Watch Shop', imageUrl: 'https://cdn.leonardo.ai/users/9a580a0f-d698-4ac5-b0cc-6f7473b5c5d5/generations/3ffc620d-6e59-4068-8538-e7fec58de1ef/variations/Default_A_graceful_floating_2_year_old_water_goddess_Suggested_3_3ffc620d-6e59-4068-8538-e7fec58de1ef_0.jpg?w=512', followers: '65k' },
 ];
 
 export const stories = [
