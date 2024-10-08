@@ -1,6 +1,7 @@
 import React from 'react';
 import Navbar from './Navbar';
 import Sidebar from './Sidebar';
+import Fouter from './Footer';
 
 interface HeaderProps {
   isSidebarOpen: boolean;
@@ -12,6 +13,7 @@ const Header: React.FC<HeaderProps> = ({ isSidebarOpen, toggleSidebar }) => {
     <>
       <Navbar toggleSidebar={toggleSidebar} />
       <Sidebar isOpen={isSidebarOpen} />
+      <Fouter/>
     </>
   );
 };

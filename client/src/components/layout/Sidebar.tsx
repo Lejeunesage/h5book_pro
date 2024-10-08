@@ -14,7 +14,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen }) => {
 
   return (
     <aside
-      className={`fixed top-0 left-0 h-[85%]  z-40 mt-28 overflow-y-auto    pl-12  transition-transform duration-300 ease-in-out ${sidebarClass}`}
+      className={`fixed top-0 left-0 h-[85%]  z-40 mt-20 overflow-y-auto    pl-12  transition-transform duration-300 ease-in-out ${sidebarClass}`}
     >
       <div className="bg-white h-full py-5 shadow rounded-md dark:bg-bs-dark  flex flex-col justify-between">
         <div className="py-4 px-5">

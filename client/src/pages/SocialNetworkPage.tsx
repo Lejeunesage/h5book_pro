@@ -1,47 +1,64 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Layout from "../components/layout/Layout";
 import ProfileCard from "../components/socialNetwork/ProfileCard";
 import SuggestionCard from "../components/socialNetwork/SuggestionCard";
 import LikedPageCard from "../components/socialNetwork/LikedPageCard";
-import StoriesList from "../components/socialNetwork/StoriesList.tsx";
+import StoriesList from "../components/socialNetwork/StoriesList";
 import CreatePostForm from "../components/socialNetwork/CreatePostForm";
-import NewsFeedList from "../components/socialNetwork/NewsFeedList.tsx";
-import GalleryCard from "../components/socialNetwork//GalleryCard";
+import NewsFeedList from "../components/socialNetwork/NewsFeedList";
+import GalleryCard from "../components/socialNetwork/GalleryCard";
 import EventCard from "../components/socialNetwork/EventCard";
 import GameCard from "../components/socialNetwork/GameCard";
 import FriendList from "../components/socialNetwork/FriendList";
 
-import { user, suggestions, likedPages, newsFeedItems, stories, photos, events, games, friends } from '../data/dummyData.ts';
+import {
+  user,
+  suggestions,
+  likedPages,
+  newsFeedItems,
+  stories,
+  photos,
+  events,
+  games,
+  friends,
+} from "../data/dummyData.ts";
 
 const SocialNetworkPage: React.FC = () => {
   return (
     <Layout>
-      <div className="flex flex-col min-h-screen lg:flex-row">
-  
-
-        {/* Second Column: Profile, Suggestions, Liked Pages */}
-        <div className="order-2 lg:order-none flex-1 lg:flex-1 lg:basis-2/6 space-y-4 p-4 hidden lg:block">
-          <ProfileCard user={user} />
-          <SuggestionCard suggestions={suggestions} />
-          <LikedPageCard likedPages={likedPages} />
-        </div>
-
-        {/* Third Column: Create Post Form, Status List */}
-        <div className="order-3 lg:order-none flex-2 lg:flex-1 lg:basis-4/6 space-y-4 p-4">
+      {/* Bande des stories */}
+      <div className="flex justify-evenly mr-8">
+        <div className="w-full mb-4">
           <StoriesList stories={stories} />
-          <CreatePostForm user={user} />
-          {newsFeedItems && newsFeedItems.length > 0 && <NewsFeedList newsFeedItems={newsFeedItems} />}
+
+          {/* Conteneur avec 3 colonnes et liste d'amis à droite */}
+          <div className="flex flex-col lg:flex-row justify-between gap-5">
+            {/* Colonne gauche */}
+            <div className="w-full lg:w-1/4 space-y-4 mb-4">
+              <ProfileCard user={user} />
+              <SuggestionCard suggestions={suggestions} />
+              <LikedPageCard likedPages={likedPages} />
+            </div>
+
+            {/* Colonne centrale */}
+            <div className="w-full lg:w-2/4 space-y-4 mb-4">
+              <CreatePostForm user={user} />
+              {newsFeedItems && newsFeedItems.length > 0 && (
+                <NewsFeedList newsFeedItems={newsFeedItems} />
+              )}
+            </div>
+
+            {/* Colonne droite */}
+            <div className="w-full lg:w-1/4 space-y-4 mb-4">
+              <GalleryCard photos={photos} />
+              <EventCard events={events} />
+              <GameCard games={games} />
+            </div>
+          </div>
         </div>
 
-        {/* Fourth Column: Gallery, Events, Games */}
-        <div className="order-4 lg:order-none flex-1 lg:flex-1 lg:basis-2/6 space-y-4 p-4 hidden lg:block">
-          <GalleryCard photos={photos} />
-          <EventCard events={events} />
-          <GameCard games={games} />
-        </div>
-        
-        {/* Fifth Column: Friend List */}
-        <div className="order-5 lg:order-none flex-1 lg:flex-1 lg:basis-2/6 space-y-4 p-4 hidden lg:block">
+        {/* Liste d'amis à droite en colonne fixe */}
+        <div className="sticky top-20 self-start hidden lg:block lg:w-1/5 pl-4">
           <FriendList friends={friends} />
         </div>
       </div>

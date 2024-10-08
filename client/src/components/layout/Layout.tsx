@@ -33,7 +33,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
     <div className="flex flex-col min-h-screen  bg-bs-fond dark:bg-bs-darkfond">
       <Header isSidebarOpen={isSidebarOpen} toggleSidebar={() => setIsSidebarOpen(!isSidebarOpen)} />
       
-      <ChatIcon toggleChat={() => setIsChatOpen(!isChatOpen)} />
+      {/* <ChatIcon toggleChat={() => setIsChatOpen(!isChatOpen)} /> */}
       
       {isChatOpen && <ChatPanel />}
       <main className={`${marginLeftClass} flex-grow py-7 px-5 transition-all duration-300`}>
