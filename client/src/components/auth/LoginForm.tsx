@@ -45,7 +45,7 @@ const LoginForm = () => {
           />
           <h1 className="text-white text-5xl font-bold">Bienvenue!</h1>
         </div>
-        <div className="bg-white xl:w-1/2 w-96 dark:bg-gray-800 xl:px-8  rounded-2xl text-gray-600 ">
+        <div className="bg-white xl:w-1/2 w-96 dark:bg-bs-dark xl:px-8  rounded-2xl text-gray-600 ">
           <form onSubmit={handleSubmit} className="w-full text-gray-600 p-5">
             <ToastContainer />
             <h1 className="text-2xl mb-5 font-bold text-gray-600">Connexion</h1>

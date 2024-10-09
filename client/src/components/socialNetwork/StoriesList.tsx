@@ -1,117 +1,109 @@
-import React, { useState, useRef } from 'react';
+// components/StoriesList.tsx
+import React, { useState, useRef, useEffect } from 'react';
 import { Story } from '../../models/socialNetwork/Story';
 import StoriesCard from './StoriesCard';
 import StoryModal from './StoryModal';
-import { FaAngleDoubleRight, FaAngleDoubleLeft } from 'react-icons/fa';
+import AddStoryModal from './AddStoryModal';
+import { FaPlus, FaAngleDoubleRight, FaAngleDoubleLeft } from 'react-icons/fa';
 
-interface StoriesListProps {
-  stories: Story[];
-}
-
-const StoriesList: React.FC<StoriesListProps> = ({ stories }) => {
+const StoriesList: React.FC<{ stories: Story[], userId: string, userName: string }> = ({ stories: initialStories, userId, userName }) => {
+  const [stories, setStories] = useState(initialStories);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [modalStories, setModalStories] = useState<Story[]>([]);
+  const [isAddModalOpen, setIsAddModalOpen] = useState(false);
+  const [initialStoryIndex, setInitialStoryIndex] = useState(0);
+  const [showLeftArrow, setShowLeftArrow] = useState(false);
+  const [showRightArrow, setShowRightArrow] = useState(false);
   const storiesContainerRef = useRef<HTMLDivElement>(null);
 
-  const handleStoryClick = (story: Story, index: number) => {
+  const checkForOverflow = () => {
+    if (storiesContainerRef.current) {
+      const { scrollWidth, clientWidth, scrollLeft } = storiesContainerRef.current;
+      setShowLeftArrow(scrollLeft > 0);
+      setShowRightArrow(scrollWidth > clientWidth && scrollLeft < scrollWidth - clientWidth);
+    }
+  };
+
+  useEffect(() => {
+    checkForOverflow();
+    window.addEventListener('resize', checkForOverflow);
+    return () => window.removeEventListener('resize', checkForOverflow);
+  }, [stories]);
+
+  const handleStoryClick = (index: number) => {
+    setInitialStoryIndex(index);
     setIsModalOpen(true);
-    setModalStories(stories.slice(index));
   };
 
   const handleModalClose = () => {
     setIsModalOpen(false);
-    setModalStories([]);
+  };
+
+  const handleAddStory = (newStory: Story) => {
+    setStories(prevStories => [newStory, ...prevStories]);
   };
 
   const scrollRight = () => {
     if (storiesContainerRef.current) {
       storiesContainerRef.current.scrollBy({ left: 300, behavior: 'smooth' });
+      setTimeout(checkForOverflow, 400);
     }
   };
 
   const scrollLeft = () => {
     if (storiesContainerRef.current) {
       storiesContainerRef.current.scrollBy({ left: -300, behavior: 'smooth' });
+      setTimeout(checkForOverflow, 400);
     }
-  };
-
-  let isDragging = false;
-  let startPosition = 0;
-  let scrollPosition = 0;
-
-  const handleMouseDown = (e: React.MouseEvent) => {
-    isDragging = true;
-    startPosition = e.pageX - (storiesContainerRef.current?.offsetLeft || 0);
-    scrollPosition = storiesContainerRef.current?.scrollLeft || 0;
-  };
-
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (!isDragging) return;
-    e.preventDefault();
-    const x = e.pageX - (storiesContainerRef.current?.offsetLeft || 0);
-    const walk = x - startPosition;
-    if (storiesContainerRef.current) {
-      storiesContainerRef.current.scrollLeft = scrollPosition - walk;
-    }
-  };
-
-  const handleMouseUpOrLeave = () => {
-    isDragging = false;
-  };
-
-  const handleTouchStart = (e: React.TouchEvent) => {
-    isDragging = true;
-    startPosition = e.touches[0].pageX - (storiesContainerRef.current?.offsetLeft || 0);
-    scrollPosition = storiesContainerRef.current?.scrollLeft || 0;
-  };
-
-  const handleTouchMove = (e: React.TouchEvent) => {
-    if (!isDragging) return;
-    const x = e.touches[0].pageX - (storiesContainerRef.current?.offsetLeft || 0);
-    const walk = x - startPosition;
-    if (storiesContainerRef.current) {
-      storiesContainerRef.current.scrollLeft = scrollPosition - walk;
-    }
-  };
-
-  const handleTouchEnd = () => {
-    isDragging = false;
   };
 
   return (
     <div className="relative">
-      <button 
-        onClick={scrollLeft}
-        className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-200 p-2 rounded-full z-10"
-      >
-        <FaAngleDoubleLeft className="h-6 w-6 text-gray-600" />
-      </button>
+      {showLeftArrow && (
+        <button onClick={scrollLeft} className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-200 p-2 rounded-full z-10">
+          <FaAngleDoubleLeft className="h-3 w-3 text-gray-600" />
+        </button>
+      )}
       <div 
-        className="flex max-w-[34em] overflow-x-hidden space-x-4 pb-4"
+        className="flex gap-5 overflow-x-auto pb-4 scrollbar-hide" 
         ref={storiesContainerRef}
-        onMouseDown={handleMouseDown}
-        onMouseMove={handleMouseMove}
-        onMouseUp={handleMouseUpOrLeave}
-        onMouseLeave={handleMouseUpOrLeave}
-        onTouchStart={handleTouchStart}
-        onTouchMove={handleTouchMove}
-        onTouchEnd={handleTouchEnd}
+        onScroll={checkForOverflow}
       >
+        <div className="flex-shrink-0 w-[8.9em] h-40 rounded-md border-2 cursor-pointer flex items-center justify-center" onClick={() => setIsAddModalOpen(true)}>
+          <FaPlus className="text-4xl text-gray-500" />
+        </div>
         {stories.map((story, index) => (
           <StoriesCard
             key={story.id}
             story={story}
-            onClick={() => handleStoryClick(story, index)}
+            onClick={() => handleStoryClick(index)}
+            containerClassName="mb-4 " 
+            imageContainerClassName="w-[8.9em] h-40" 
+            mediaClassName="w-full h-full object-cover" 
+            textClassName="mt-2 text-xs font-bold text-center"
           />
         ))}
+
       </div>
-      <button 
-        onClick={scrollRight}
-        className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-200 p-2 rounded-full z-10"
-      >
-        <FaAngleDoubleRight className="h-6 w-6 text-gray-600" />
-      </button>
-      {isModalOpen && <StoryModal stories={modalStories} onClose={handleModalClose} />}
+      {showRightArrow && (
+        <button onClick={scrollRight} className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-200 p-2 rounded-full z-10">
+          <FaAngleDoubleRight className="h-3 w-3 text-gray-600" />
+        </button>
+      )}
+      {isModalOpen && (
+        <StoryModal
+          stories={stories}
+          onClose={handleModalClose}
+          initialStoryIndex={initialStoryIndex}
+        />
+      )}
+      {isAddModalOpen && (
+        <AddStoryModal
+          onClose={() => setIsAddModalOpen(false)}
+          onAddStory={handleAddStory}
+          userId={userId}
+          userName={userName}
+        />
+      )}
     </div>
   );
 };

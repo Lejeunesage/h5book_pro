@@ -15,7 +15,7 @@ const CreatePostForm: React.FC<CreatePostFormProps> = ({ user }) => {
   };
 
   return (
-    <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-lg">
+    <div className="bg-white dark:bg-bs-dark p-4 rounded-lg shadow-lg">
       <form onSubmit={handleSubmit}>
         <textarea
           className="w-full p-2 mb-4 border rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white"

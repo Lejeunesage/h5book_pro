@@ -6,7 +6,7 @@ interface PostCardProps {
 
 const PostCard: React.FC<PostCardProps> = ({ post }) => {
   return (
-    <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-lg">
+    <div className="bg-white dark:bg-bs-dark p-4 rounded-lg shadow-lg">
       <div className="flex items-center mb-4">
         <img
           src={post.user.profileImageUrl}

@@ -45,7 +45,7 @@ const LikedPageCard: React.FC<LikedPageCardProps> = ({ likedPages }) => {
   }, []);
 
   return (
-    <div className="relative bg-white dark:bg-gray-800 p-4 rounded-lg shadow-lg">
+    <div className="relative bg-white dark:bg-bs-dark p-4 rounded-lg shadow-lg">
       <h2 className="text-xl font-bold dark:text-white mb-4">Liked Pages</h2>
       <button
         onClick={toggleModal}
@@ -74,7 +74,7 @@ const LikedPageCard: React.FC<LikedPageCardProps> = ({ likedPages }) => {
         </div>
       ))}
       {isModalOpen && (
-        <div className="absolute top-16 right-4 bg-white dark:bg-gray-800 p-4 rounded-lg shadow-lg w-64 z-50" ref={modalRef}>
+        <div className="absolute top-16 right-4 bg-white dark:bg-bs-dark p-4 rounded-lg shadow-lg w-64 " ref={modalRef}>
           <h3 className="text-lg font-bold dark:text-white mb-2">Settings</h3>
           <ul>
             <li className="mb-2">

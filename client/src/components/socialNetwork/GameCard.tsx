@@ -7,7 +7,7 @@ interface GameCardProps {
 
 const GameCard: React.FC<GameCardProps> = ({ games }) => {
   return (
-    <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-lg">
+    <div className="bg-white dark:bg-bs-dark p-4 rounded-lg shadow-lg">
       <h2 className="text-xl font-bold dark:text-white mb-4">Games</h2>
       {games.map((game) => (
         <div key={game.id} className="mb-4">

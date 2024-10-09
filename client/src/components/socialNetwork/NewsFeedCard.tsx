@@ -14,7 +14,7 @@ const NewsFeedCard: React.FC<NewsFeedCardProps> = ({ newsFeedItem }) => {
   const { author, authorImage, title, content, imageUrl } = newsFeedItem;
 
   return (
-    <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-md mb-4">
+    <div className="bg-white dark:bg-bs-dark p-4 rounded-lg shadow-md mb-4">
       <div className="flex items-center mb-4">
         {authorImage && (
           <img

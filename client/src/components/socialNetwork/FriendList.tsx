@@ -7,7 +7,7 @@ interface FriendListProps {
 
 const FriendList: React.FC<FriendListProps> = ({ friends }) => {
   return (
-    <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-lg">
+    <div className="bg-white dark:bg-bs-dark p-4 rounded-lg shadow-lg">
       <h2 className="text-xl font-bold dark:text-white mb-4">Friends</h2>
       {friends.map((friend) => (
         <div key={friend.id} className="mb-4">

@@ -37,7 +37,7 @@ const LoginForm = () => {
                         <p>Vous n'avez pas encore de compte ? <a href="/register" className="text-white font-bold hover:underline">Inscrivez-vous ici</a></p>
                     </div>
                 </div>
-                <div className="bg-white dark:bg-gray-800 p-8 lg:w-1/2">
+                <div className="bg-white dark:bg-bs-dark p-8 lg:w-1/2">
                     <form onSubmit={handleSubmit}>
                         <ToastContainer />
                         <h1 className="text-2xl font-bold mb-6 text-center">Connexion</h1>

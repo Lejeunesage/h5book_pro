@@ -81,7 +81,7 @@ const Navbar: React.FC<NavbarProps> = ({ toggleSidebar }) => {
   }, [profilDropdownRef, userDropdownRef]);
 
   return (
-    <nav className="bg-white dark:bg-bs-dark border-gray-200 border-b shadow px-4 py-3 sm:py-0 top-0 z-50 sticky">
+    <nav className="bg-white dark:bg-bs-dark border-gray-200 border-b shadow px-4 py-3 sm:py-0 md:py-2 top-0 z-50 sticky">
       <div className="flex flex-wrap justify-between gap-5 items-center">
         <div className="flex justify-start items-center gap-5">
           <div className="flex">
@@ -119,7 +119,7 @@ const Navbar: React.FC<NavbarProps> = ({ toggleSidebar }) => {
             </button>
 
             {isUserDropdownOpen && (
-              <div className="absolute w-[26rem] left-2 top-10 py-1 bg-white dark:bg-gray-800 rounded-md shadow-lg">
+              <div className="absolute w-[26rem] left-2 top-10 py-1 bg-white dark:bg-bs-dark rounded-md shadow-lg">
                 <div className="block  px-4 py-2 text-lg font-bold text-gray-700 border-b dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-600 ">
                   <h1>Demande d'amis</h1>
                 </div>
@@ -237,7 +237,7 @@ const Navbar: React.FC<NavbarProps> = ({ toggleSidebar }) => {
             </button>
 
             {isMessageDropdownOpen && (
-              <div className="absolute w-[26rem] right-2 top-10 py-1 bg-white dark:bg-gray-800 rounded-md shadow-lg">
+              <div className="absolute w-[26rem] right-2 top-10 py-1 bg-white dark:bg-bs-dark rounded-md shadow-lg">
                 <div className="block  px-4 py-2 text-lg font-bold text-gray-700 border-b dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-600 ">
                   <h1>Demande d'amis</h1>
                 </div>
@@ -291,7 +291,7 @@ const Navbar: React.FC<NavbarProps> = ({ toggleSidebar }) => {
             </button>
 
             {isNotifDropdownOpen && (
-              <div className="absolute w-[26rem] right-2 top-10 py-1 bg-white dark:bg-gray-800 rounded-md shadow-lg">
+              <div className="absolute w-[26rem] right-2 top-10 py-1 bg-white dark:bg-bs-dark rounded-md shadow-lg">
                 <div className="block  px-4 py-2 text-lg font-bold text-gray-700 border-b dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-600 ">
                   <h1>Demande d'amis</h1>
                 </div>

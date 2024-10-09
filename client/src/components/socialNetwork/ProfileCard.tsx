@@ -29,7 +29,7 @@ const ProfileCard: React.FC<ProfileCardProps> = ({ user }) => {
   }, []);
 
   return (
-    <div className="relative bg-white dark:bg-gray-800 py-10 rounded-lg shadow-lg text-gray-600" ref={settingsRef}>
+    <div className="relative bg-white dark:bg-bs-dark py-10 rounded-lg shadow-lg text-gray-600" ref={settingsRef}>
       <button
         onClick={toggleSettings}
         className="bg-bs-light p-1 rounded-full absolute right-5 top-5 cursor-pointer"
@@ -38,7 +38,7 @@ const ProfileCard: React.FC<ProfileCardProps> = ({ user }) => {
       </button>
 
       {isSettingsVisible && (
-        <div className="absolute -right-16 z-50 top-12 bg-white dark:bg-gray-700 p-1 rounded shadow-lg text-sm">
+        <div className="absolute -right-16 top-12 bg-white dark:bg-gray-700 p-1 rounded shadow-lg text-sm">
           <div className="flex flex-col">
             <span className='flex items-center gap-2 border-b cursor-pointer p-2 hover:bg-bs-light'><FiEdit />Editer profile</span>
             <span className='flex items-center gap-2 cursor-pointer p-2 hover:bg-bs-light'><FiUser />Voir profile</span>

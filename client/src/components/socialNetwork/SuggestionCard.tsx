@@ -22,7 +22,7 @@ const SuggestionCard: React.FC<SuggestionCardProps> = ({ suggestions }) => {
 
   return (
     <div className="flex justify-center items-center">
-      <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg max-w-96">
+      <div className="bg-white dark:bg-bs-dark p-6 rounded-lg shadow-lg max-w-96">
         <h2 className="text-xl font-bold dark:text-white mb-4">Suggestions</h2>
         <Slider {...settings}>
           {suggestions.map((user) => (

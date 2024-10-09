@@ -59,18 +59,40 @@ export const likedPages = [
   { id: 5, name: 'Royal Watch', description: 'Watch Shop', imageUrl: 'https://cdn.leonardo.ai/users/9a580a0f-d698-4ac5-b0cc-6f7473b5c5d5/generations/3ffc620d-6e59-4068-8538-e7fec58de1ef/variations/Default_A_graceful_floating_2_year_old_water_goddess_Suggested_3_3ffc620d-6e59-4068-8538-e7fec58de1ef_0.jpg?w=512', followers: '65k' },
 ];
 
+
 export const stories = [
-    { id: 1, user, content: 'This is a status update!', createdAt: '2 hours ago' , media: 'https://cdn.leonardo.ai/users/ad68d04b-7790-4e00-ad49-000842234046/generations/9960e2c1-9290-4a02-b5e3-40a32fcabbef/variations/Default_Full_body_128k_Bluray_Extreme_UHD_4K_high_quality_imag_3_9960e2c1-9290-4a02-b5e3-40a32fcabbef_0.jpg?w=512' },
-    { id: 2, user, content: 'Another update!', createdAt: '1 hour ago', media: 'https://cdn.leonardo.ai/users/75de077b-a6b8-4366-a2bd-52e137796d24/generations/8b17ae00-3faa-41c6-b896-becf1ac9ae26/variations/Default_Create_an_illustration_of_a_confident_and_muscular_man_1_8b17ae00-3faa-41c6-b896-becf1ac9ae26_0.jpg?w=512' },
-    { id: 3, user, content: 'Checking in from the beach!', createdAt: '3 hours ago', media: 'https://cdn.leonardo.ai/users/cda8f4e2-3c09-4027-9bc5-9c6ed90d5343/generations/810b5ac3-0e2c-499b-a029-18e5c0a261b5/variations/Default_stray_black_cat_running_away_in_the_streets_of_liam_wo_0_810b5ac3-0e2c-499b-a029-18e5c0a261b5_0.jpg?w=512' },
-    { id: 4, user, content: 'Had a great workout today!', createdAt: '4 hours ago', media: 'https://cdn.leonardo.ai/users/98ec3651-a245-46c1-9282-92b9a27a8557/generations/d860536e-2fc7-45bd-bf8b-28fee5dffd8a/variations/Default_Create_a_wide_angle_full_body_photograph_a_beautiful_f_0_d860536e-2fc7-45bd-bf8b-28fee5dffd8a_0.jpg?w=512' },
-    { id: 5, user, content: 'New blog post is up!', createdAt: '5 hours ago', media: 'https://cdn.leonardo.ai/users/d286feac-2a39-4382-9cd1-d86779f93375/generations/02f277c3-4e21-4865-ae93-9af8e18d3c08/variations/Default_Donald_Trump_as_an_orange_angry_rooster_anthropomorphi_2_02f277c3-4e21-4865-ae93-9af8e18d3c08_0.jpg?w=512' },
-    { id: 6, user, content: 'Just finished a meeting.', createdAt: '6 hours ago', media: 'https://cdn.leonardo.ai/users/c25dda5f-b454-45f7-a9a7-75b8939854b0/generations/c0c0f8eb-cd85-40df-97e1-9c45bca778e4/variations/Default_Illustrate_an_electrifying_and_dynamic_scene_where_a_b_1_c0c0f8eb-cd85-40df-97e1-9c45bca778e4_0.jpg?w=512' },
-    { id: 7, user, content: 'Trying out a new recipe tonight!', createdAt: '7 hours ago', media: 'https://cdn.leonardo.ai/users/1b3bb13e-dce0-44d6-956a-2e6148fd0c6a/generations/22dc80d1-4d1d-4166-bf32-9094b782dcd6/variations/Default_Cosmic_energy_2_22dc80d1-4d1d-4166-bf32-9094b782dcd6_0.jpg?w=512' },
-    { id: 8, user, content: 'Happy weekend, everyone!', createdAt: '8 hours ago', media: 'https://cdn.leonardo.ai/users/fcfeb7ab-37cf-44e0-b53a-53f66397bb40/generations/4e20f231-a7bd-4db3-8e8c-f2398fd4787a/variations/Default_Hailee_Steinfeld_con_baador_negro_de_dos_piezas_corto_0_4e20f231-a7bd-4db3-8e8c-f2398fd4787a_0.jpg?w=512' },
-    { id: 9, user, content: 'Can\'t wait for the game tonight!', createdAt: '9 hours ago', media: 'https://cdn.leonardo.ai/users/a5fce01c-510e-4bc3-8d36-124cde3bc44c/generations/9bc9fce9-9ba4-4a7c-a1ea-23a90a9c8fb1/variations/Default_loraKanuUnchouV51_kanu_unchou_loraDOA5LR_Ayane_in_ninj_1_9bc9fce9-9ba4-4a7c-a1ea-23a90a9c8fb1_0.jpg?w=512' },
-    { id: 10, user, content: 'Enjoying the sunny weather!', createdAt: '10 hours ago', media: 'https://cdn.leonardo.ai/users/2ffb21bf-d03a-4e6d-9573-5940ecf79575/generations/f8a7dcf0-60b3-4e7a-a904-bf4f1020cab5/variations/Default_Eiffel_Tower_full_moon_behind_glowing_beautiful_night_0_f8a7dcf0-60b3-4e7a-a904-bf4f1020cab5_0.jpg?w=512' },
-  ];
+  {
+      id: '1',
+      user: { id: 'user1', firstName: 'Alice', lastName: 'Smith' },
+      mediaList: [
+          { type: 'image', url: 'https://cdn.leonardo.ai/users/2ffb21bf-d03a-4e6d-9573-5940ecf79575/generations/f8a7dcf0-60b3-4e7a-a904-bf4f1020cab5/variations/Default_Eiffel_Tower_full_moon_behind_glowing_beautiful_night_0_f8a7dcf0-60b3-4e7a-a904-bf4f1020cab5_0.jpg?w=512' },
+          { type: 'text', content: 'Hello from Alice!', backgroundColor: '#ffcccc', textColor: '#000000', fontFamily: 'Arial' },
+          {type: 'image', url: 'https://cdn.leonardo.ai/users/1b3bb13e-dce0-44d6-956a-2e6148fd0c6a/generations/22dc80d1-4d1d-4166-bf32-9094b782dcd6/variations/Default_Cosmic_energy_2_22dc80d1-4d1d-4166-bf32-9094b782dcd6_0.jpg?w=512' },
+      ],
+      createdAt: new Date(),
+  },
+  {
+      id: '2',
+      user: { id: 'user2', firstName: 'Bob', lastName: 'Jones' },
+      mediaList: [
+        { type: 'text', content: 'This is Bob!', backgroundColor: '#ccffcc', textColor: '#000000', fontFamily: 'Helvetica' },
+        { type: 'video', url: 'https://www.tiktok.com/@aysha.siddika.afiya/video/7300943476752010498?is_from_webapp=1&sender_device=pc' },
+          { type: 'image', url: 'https://cdn.leonardo.ai/users/1b3bb13e-dce0-44d6-956a-2e6148fd0c6a/generations/22dc80d1-4d1d-4166-bf32-9094b782dcd6/variations/Default_Cosmic_energy_2_22dc80d1-4d1d-4166-bf32-9094b782dcd6_0.jpg?w=512' },
+      ],
+      createdAt: new Date(),
+  },
+  {
+    id: '3',
+    user: { id: 'user3', firstName: 'Charlie', lastName: 'Brown' },
+    mediaList: [
+      { type: 'image', url: 'https://cdn.leonardo.ai/users/1b3bb13e-dce0-44d6-956a-2e6148fd0c6a/generations/22dc80d1-4d1d-4166-bf32-9094b782dcd6/variations/Default_Cosmic_energy_2_22dc80d1-4d1d-4166-bf32-9094b782dcd6_0.jpg?w=512' },
+      { type: 'text', content: 'Check this out!', backgroundColor: '#ccccff', textColor: '#000000', fontFamily: 'Courier New' },
+    ],
+    createdAt: new Date(),
+  },
+  // Ajoutez d'autres histoires ici
+];
+
 
 export const photos: Photo[] = [
   { id: 1, url: 'https://cdn.leonardo.ai/users/5c917e6d-4448-41bb-b06a-3c80b3909991/generations/b7f8ed6c-dc1e-40af-b2e2-0bcc9f850096/variations/alchemyrefiner_alchemymagic_1_b7f8ed6c-dc1e-40af-b2e2-0bcc9f850096_0.jpg?w=512', description: 'A nice view' },

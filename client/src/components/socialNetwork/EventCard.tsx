@@ -7,7 +7,7 @@ interface EventCardProps {
 
 const EventCard: React.FC<EventCardProps> = ({ events }) => {
   return (
-    <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-lg">
+    <div className="bg-white dark:bg-bs-dark p-4 rounded-lg shadow-lg">
       <h2 className="text-xl font-bold dark:text-white mb-4">Events</h2>
       {events.map((event) => (
         <div key={event.id} className="mb-4">

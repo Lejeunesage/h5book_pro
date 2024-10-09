@@ -27,9 +27,11 @@ const SocialNetworkPage: React.FC = () => {
   return (
     <Layout>
       {/* Bande des stories */}
-      <div className="flex justify-evenly mr-8">
-        <div className="w-full mb-4">
-          <StoriesList stories={stories} />
+      <div className="flex w-full justify-evenly gap-8">
+        <div className="mb-4 lg:w-9/12">
+          <div className="">
+            <StoriesList stories={stories} />
+          </div>
 
           {/* Conteneur avec 3 colonnes et liste d'amis à droite */}
           <div className="flex flex-col lg:flex-row justify-between gap-5">
@@ -58,7 +60,7 @@ const SocialNetworkPage: React.FC = () => {
         </div>
 
         {/* Liste d'amis à droite en colonne fixe */}
-        <div className="sticky top-20 self-start hidden lg:block lg:w-1/5 pl-4">
+        <div className="sticky top-20 self-start hidden lg:block lg:w-3/12">
           <FriendList friends={friends} />
         </div>
       </div>

@@ -8,7 +8,7 @@ interface NewsFeedCardProps {
 
 const NewsFeedCard: React.FC<NewsFeedCardProps> = ({ newsFeedItems }) => {
   return (
-    <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-lg">
+    <div className="bg-white dark:bg-bs-dark p-4 rounded-lg shadow-lg">
       <div className="flex items-center mb-2">
         <img
           src={newsFeedItems.authorImage}
